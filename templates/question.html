@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechQuest Question {{ question_id }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="title">TechQuest</div>
+        <a href="/">Challenges</a>
+        <a href="/leaderboard">Leaderboard</a>
+        {% if username %}
+        <a>{{ username }}</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+    </nav>
+    <div id="container">
+        <h1>Question {{ question_id }}</h1>
+
+        {% if question_id == 1 %}
+        <!-- Round 1: Code Reassembly Challenge -->
+        <div id="1">
+            <h2>The Enchanted Maze of Functions</h2>
+            <div class="question">
+
+                <p>The first challenge on your journey is to navigate through the Enchanted Maze of Functions. Here, the functions have been jumbled, and only by arranging them correctly can you unlock the path to the next realm.
+                </p>
+                <p><b>Task:</b> You are given the following code blocks. Arrange them in the correct sequence to create a working program that computes the number of trailing Zeroes in the factorial of n.</p>
+                <div id="pickArea">
+                    <!-- Draggable code blocks will be here -->
+                    <div class="code-block" draggable="true" data-order="6">&emsp;return total</div>
+                    <div class="code-block" draggable="true" data-order="5">&emsp;&emsp;k=k*5</div>
+                    <div class="code-block" draggable="true" data-order="1">def trailingZeroesFact(n):</div>
+                    <div class="code-block" draggable="true" data-order="3">&emsp;while k&lt;=n:</div>
+                    <div class="code-block" draggable="true" data-order="4">&emsp;&emsp;total+=n//k</div>
+                    <div class="code-block" draggable="true" data-order="2">&emsp;total,k=0,5</div>
+                </div>
+                <div id="dropArea">
+                    <!-- Area to drop and arrange code blocks -->
+                </div>
+                <br>
+                <div class="button-container">
+                    <button class="submit-button" onclick="submitCodeOrder()">Submit</button>
+                </div>
+
+            </div>
+            <div id="timer">Time left: <span id="time">300</span> seconds</div>
+        </div>
+        {% elif question_id == 2 %}
+        <!-- Round 2: Input/Output Identification -->
+        <div id="2">
+            <h2>The Sorcery of Magic Numbers</h2>
+            <div class="question">
+
+                <p>In this challenge, you're tasked with unraveling the mystery of magic numbers. A magic number is not just any digit sequence—it possesses an enchanting quality where the sum of its digits is reduced to a single digit, and if that single digit is 1, it unveils its magical nature. Eg: 1234 (1+2+3+4=10, 1+0=1 =>magic number)
+                </p>
+                <p><b>Task:</b>Arrange these code blocks in the correct sequence to create a program that checks whether a given multi-digit number is a magic number. Once you've arranged them, you'll uncover the mystical truth behind these enchanting digits!</p>
+
+                <div id="pickArea">
+                    <!-- Draggable code blocks will be here -->
+                    <div class="code-block" draggable="true" data-order="8">&emsp;&emsp;&emsp;n=sum</div>
+                    <div class="code-block" draggable="true" data-order="9">&emsp;&emsp;elif (sum&lt;=9 and sum==1):</div>
+                    <div class="code-block" draggable="true" data-order="3">&emsp;&emsp;sum=0</div>
+                    <div class="code-block" draggable="true" data-order="10">&emsp;&emsp;&emsp;return True</div>
+                    <div class="code-block" draggable="true" data-order="2">&emsp;while sum>=0:</div>
+                    <div class="code-block" draggable="true" data-order="6">&emsp;&emsp;&emsp;n=n//10</div>
+                    <div class="code-block" draggable="true" data-order="7">&emsp;&emsp;if sum>9:</div>
+                    <div class="code-block" draggable="true" data-order="12">&emsp;&emsp;&emsp;return False</div>
+                    <div class="code-block" draggable="true" data-order="5">&emsp;&emsp;&emsp;sum=sum+(n%10)</div>
+                    <div class="code-block" draggable="true" data-order="11">&emsp;&emsp;else:</div>
+                    <div class="code-block" draggable="true" data-order="4">&emsp;&emsp;while n>0:</div>
+                    <div class="code-block" draggable="true" data-order="1">def is_magic_number(n,sum=0):</div>
+                </div>
+                <div id="dropArea">
+                    <!-- Area to drop and arrange code blocks -->
+                </div>
+                <br>
+                <div class="button-container">
+                    <button class="submit-button" onclick="submitCodeOrder()">Submit</button>
+                </div>
+
+            </div>
+            <div id="timer">Time left: <span id="time">300</span> seconds</div>
+        </div>
+        {% elif question_id == 3 %}
+        <!-- Round 2: Input/Output Identification -->
+        <div id="3">
+            <h2>Cracking the Code of Special Numbers</h2>
+            <div class="question">
+
+                <p>As you delve deeper into the realms of mathematical mysteries, you encounter the legend of special numbers—an intriguing phenomenon with a unique property related to their squares.
+                    45 (45*45=2025 => 20+25=45) special Number
+                    297 (297*297=88209 => 88+209=297) special Number
+
+                </p>
+                <p><b>Task:</b> Your challenge is to unravel the secrets of these special numbers by arranging the given code blocks in the correct sequence. </p>
+
+                <div id="pickArea">
+                    <!-- Draggable code blocks will be here -->
+                    <div class="code-block" draggable="true" data-order="13">else:</div>
+                    <div class="code-block" draggable="true" data-order="9">&emsp;&emsp;return True</div>
+                    <div class="code-block" draggable="true" data-order="10">&emsp;return False</div>
+                    <div class="code-block" draggable="true" data-order="3">&emsp;square_str = str(square)</div>
+                    <div class="code-block" draggable="true" data-order="14">&emsp;print("45 is not a special number.")</div>
+                    <div class="code-block" draggable="true" data-order="5">&emsp;for i in range(1, length):</div>
+                    <div class="code-block" draggable="true" data-order="2">&emsp;square = n * n</div>
+                    <div class="code-block" draggable="true" data-order="8">&emsp;&emsp;if left_num + right_num == n and right_num != 0:</div>
+                    <div class="code-block" draggable="true" data-order="12">&emsp;print("45 is a special number.")</div>
+                    <div class="code-block" draggable="true" data-order="4">&emsp;length = len(square_str)</div>
+                    <div class="code-block" draggable="true" data-order="1">def is_special_number(n):</div>
+                    <div class="code-block" draggable="true" data-order="11">if is_special_number(45):</div>
+                    <div class="code-block" draggable="true" data-order="6">&emsp;&emsp;left_part, right_part = square_str[:i], square_str[i:]</div>
+                </div>
+                <div class="code-block" draggable="true" data-order="7">
+                    &emsp;&emsp;left_num = int(left_part) if left_part != '' else 0
+                    <br>
+                    &emsp;&emsp;right_num = int(right_part) if right_part != '' else 0
+                </div>
+                <div id="dropArea">
+                    <!-- Area to drop and arrange code blocks -->
+                </div>
+                <br>
+                <div class="button-container">
+                    <button class="submit-button" onclick="submitCodeOrder()">Submit</button>
+                </div>
+
+            </div>
+            <div id="timer">Time left: <span id="time">300</span> seconds</div>
+        </div>
+        {% elif question_id == 4 %}
+        <div id="4">
+            <h2>The Cipher of Complexity</h2>
+            <div class="question">
+
+                <p>You have successfully navigated the Enchanted Maze, the Data Forest, and the Array of Destiny. Now, you face the Cipher of Complexity. A cryptic code lies before you, and you must decipher its output to proceed.</p>
+
+                <p><b>Task:</b>Given the following code and input, what is the output?</p>
+                <pre class="code">
+                    def cipher_of_complexity(input_string):
+                        result = ''
+                        for char in input_string:
+                            if char.isalpha():
+                                if char.islower():
+                                    result += chr(((ord(char) - ord('a') + 5) % 26) + ord('a'))
+                                else:
+                                    result += chr(((ord(char) - ord('A') + 5) % 26) + ord('A'))
+                            elif char.isdigit():
+                                result += str((int(char) * 2 + 1) % 10)
+                            else:
+                                result += char
+                        return result
+
+                    # Input
+                    input_string = "Complexity 2024!"
+                    print(cipher_of_complexity(input_string))
+                </pre>
+
+                <div id="output">
+                    <input type="text" id="userInput1" placeholder="Enter your answer">
+                </div>
+                <br>
+                <div class="button-container">
+                    <button class="submit-button" onclick="submitCodeOrder()">Submit</button>
+                </div>
+
+            </div>
+            <div id="timer">Time left: <span id="time">300</span> seconds</div>
+        </div>
+        {% elif question_id == 5 %}
+        <div id="5">
+            <h2>The Enigma of Substring Scramble</h2>
+            <div class="question">
+
+                <p>A cryptic code lies before you, and you must decipher its output to proceed.</p>
+
+                <p><b>Task:</b>Your task is to decipher the cryptic code provided, understand its logic, and uncover the output it produces. Within this code lies the key to finding the minimum window substring of one string, ensuring that it encompasses every character of another string. </p>
+                <pre class="code">
+                    def minWindow( s="ADOBECODEBANC", t="ABC") :
+                        if not s or not t:
+                            return ""
+
+                        dictT = defaultdict(int)
+                        for c in t:
+                            dictT[c] += 1
+
+                        required = len(dictT)
+                        l, r = 0, 0
+                        formed = 0
+
+                        windowCounts = defaultdict(int)
+                        ans = [-1, 0, 0]
+
+                        while r &lt; len(s):
+                            c = s[r]
+                            windowCounts[c] += 1
+
+                            if c in dictT and windowCounts[c] == dictT[c]:
+                                formed += 1
+
+                            while l &lt;= r and formed == required:
+                                c = s[l]
+
+                                if ans[0] == -1 or r - l + 1 &lt; ans[0]:
+                                    ans[0] = r - l + 1
+                                    ans[1] = l
+                                    ans[2] = r
+
+                                windowCounts[c] -= 1
+                                if c in dictT and windowCounts[c] &lt; dictT[c]:
+                                    formed -= 1
+
+                                l += 1
+
+                            r += 1
+
+                        return "" if ans[0] == -1 else s[ans[1]:ans[2] + 1]
+
+                </pre>
+
+                <div id="output">
+                    <input type="text" id="userInput2" placeholder="Enter your answer">
+                </div>
+                <br>
+                <div class="button-container">
+                    <button class="submit-button" onclick="submitCodeOrder()">Submit</button>
+                </div>
+
+            </div>
+            <div id="timer">Time left: <span id="time">300</span> seconds</div>
+        </div>
+
+
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

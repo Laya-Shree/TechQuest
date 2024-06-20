@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Code Mastery Competition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/styles.css') }}">
+    <script>
+        function showAlert() {
+            alert("Invalid username or password. Please try again.");
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="title">TechQuest</div>
+        <a href="/">Challenges</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/login">Login</a>
+    </nav>
+    <div id="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="/register">Register</a></p>
+            </form>
+        </div>
+    </div>
+    {% if login_failed %}
+    <script>
+        showAlert();
+    </script>
+    {% endif %}
+</body>
+</html>

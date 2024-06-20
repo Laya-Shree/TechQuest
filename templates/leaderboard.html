@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Code Mastery Competition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="title">TechQuest</div>
+        <a href="/">Challenges</a>
+        <a href="/leaderboard">Leaderboard</a>
+        {% if username %}
+        <a>{{ username }}</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+    </nav>
+    <div id="container">
+        <div class="text">
+            <h2>Leaderboard</h2>
+            <p>Check out the top coders in the competition! Do you have what it takes to be on the leaderboard?</p>
+        </div>
+        <div class="leaderboard-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.rank }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
