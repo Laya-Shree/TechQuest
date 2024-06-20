@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Mastery Competition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="title">TechQuest</div>
+        <a href="/">Challenges</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <!--<a href="/profile">Profile</a>-->
+        {% if username %}
+        <a>{{ username }}</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+    </nav>
+    <div id="container">
+        <div class="text">
+            Welcome to the ultimate coding competition, The Quest for the Lost Algorithm! You, a daring coder, have been chosen to embark on a journey through the digital realms to recover a legendary lost algorithm that holds the power to revolutionize technology. Along the way, you'll face a series of challenges that will test your coding skills to the limit. Are you ready to dive into the matrix and prove your prowess? Let the quest begin!
+        </div>
+        <div class="card-container">
+            {% set titles = [
+                "The Enchanted Maze of Functions",
+                "The Sorcery of Magic Numbers",
+                "Cracking the Code of Special Numbers",
+                "The Cipher of Complexity",
+                "The Enigma of Substring Scramble"
+            ] %}
+
+            {% for i in range(1, 6) %}
+                <div class="card" onclick="window.location.href='/question/{{ i }}'">
+                    <h3>{{ titles[i - 1] }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <h1 id="score">Total Score: 0</h1>
+        <!--<h1 id="score">Total Score: {{ total_score }}</h1>-->
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
