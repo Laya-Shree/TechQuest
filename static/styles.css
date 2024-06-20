@@ -1,0 +1,285 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    font-family: 'Courier Prime', monospace;
+    margin: 0;
+    padding: 0;
+    color: white;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: auto 1fr repeat(3, auto);
+    background-color: rgba(2, 13, 49, 0.937);
+    gap: 10px;
+    padding: 10px;
+    top: 0;
+    position: sticky;
+    margin: 0;
+}
+
+.title {
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+pre.code {
+    background-color: black;
+    color: cyan;
+    font-size:large;
+    /* width:200px; */
+    /* margin-left: 100px; */
+    /* margin-right: 20px; */
+    /* font-family: 'Courier Prime', monospace; */
+}
+
+nav a {
+    color: cyan;
+    text-align: right;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.text{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    background-color: black;
+    color:cyan;
+    text-align: center;
+}
+
+#container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../static/Background_img.jpg");
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.question {
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: center;
+}
+
+h1, h2 {
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* Submit Button Styles */
+.submit-button {
+    background-color: cyan;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-button:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+.submit-button:active {
+    background-color: #00aaff;
+    transform: scale(1.05);
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: black;
+    color: ca;
+    width: calc(25% - 20px); /* Four cards per row with a gap */
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid cyan;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3, .card p {
+    margin: 10px 0;
+}
+
+#codeBlocks {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.code-block {
+    padding: 10px;
+    margin: 5px;
+    color: cyan;
+    background-color: black;
+    border: 1px solid cyan;
+    border-radius: 5px;
+    cursor: grab;
+}
+
+#dropArea {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 500px;
+}
+#output {
+    min-height: 100px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Set line-height to 1 for single line */
+}
+
+#userInput1 {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 50%; /* Optional: makes the input take the full width of the container */
+}
+
+#timer, #timerRound2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*NEW CONTENT*/
+.form-container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-color: black;
+    color: cyan;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.form-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-container input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    font-family: 'Courier Prime', monospace;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: cyan;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: white;
+}
+
+.form-container p {
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-container a {
+    color: cyan;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    color: white;
+}
+
+/* Leaderboard styles */
+.leaderboard-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: cyan;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid cyan;
+}
+
+.leaderboard-table th {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leaderboard-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/*END OF NEW CONTENT*/
